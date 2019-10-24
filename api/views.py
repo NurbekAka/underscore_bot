@@ -11,8 +11,8 @@ class TelegramAPIView(LikedMixin, generics.ListAPIView):
     serializer_class = TelegramSerializer
     lookup_field = 'pk'
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('category',)
-    search_fields = ('category',)
+    filterset_fields = ('category', 'status')
+    search_fields = ('category', 'status')
 
 
 class TelegramAPICreate(generics.CreateAPIView):

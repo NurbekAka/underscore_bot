@@ -6,6 +6,17 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
 
 
+class Status(models.Model):
+    status = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'Status'
+        verbose_name_plural = 'Statuses'
+
+    def __str__(self):
+        return self.status
+
+
 class Category(models.Model):
     category = models.CharField(max_length=255)
 
@@ -33,6 +44,7 @@ class Telegram_Post(models.Model):
     longitude = models.FloatField()
     altitude = models.FloatField()
     created_date = models.DateTimeField(default=timezone.now())
+    status = models.ForeignKey(Status, on_delete=models.CASCADE)
     likes = GenericRelation(Like)
 
     def __str__(self):

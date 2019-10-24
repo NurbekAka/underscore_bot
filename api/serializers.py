@@ -11,7 +11,7 @@ class TelegramSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Telegram_Post
-        fields = ('id', 'title', 'category', 'image', 'longitude', 'altitude', 'total_likes', 'is_fan')
+        fields = ('id', 'title', 'category', 'status', 'image', 'longitude', 'altitude', 'total_likes', 'is_fan')
 
     def get_is_fan(self, obj) -> bool:
         """Проверяет, лайкнул ли `request.user` твит (`obj`).
